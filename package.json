@@ -10,12 +10,12 @@
 		"modules"
 	],
 	"scripts": {
-		"compile": "rm -rf dist/lib && tsc",
+		"compile": "rm -rf modules && tsc",
 		"test": "jest --coverage --maxWorkers=1",
 		"dev": "tsc --watch",
 		"lint": "eslint --ext .js,.ts .",
 		"format": "prettier --write .",
-		"typedoc": "typedoc src/index.ts"
+		"typedoc": "typedoc --entryPointStrategy expand ./src"
 	},
 	"repository": {
 		"type": "git",
