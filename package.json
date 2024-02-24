@@ -1,7 +1,7 @@
 {
 	"name": "@gandlaf21/cashu-crypto",
-  "type": "module",
-	"version": "0.1.4",
+	"type": "module",
+	"version": "0.1.5",
 	"description": "",
 	"main": "modules/index.js",
 	"module": "modules/index.js",
@@ -76,7 +76,7 @@
 			"default": "./modules/client/NUT11.js",
 			"import": "./modules/client/NUT11.js"
 		},
-    "./mint/NUT11": {
+		"./mint/NUT11": {
 			"types": "./modules/mint/NUT11.d.ts",
 			"default": "./modules/mint/NUT11.js",
 			"import": "./modules/mint/NUT11.js"
