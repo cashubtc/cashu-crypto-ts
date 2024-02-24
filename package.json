@@ -1,6 +1,6 @@
 {
 	"name": "@gandlaf21/cashu-crypto",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "",
 	"main": "dist/lib/es5/index.js",
 	"module": "dist/lib/es6/index.js",
@@ -49,33 +49,31 @@
 		"typedoc": "^0.25.8",
 		"typescript": "^4.9.4"
 	},
-  "exports": {
-    "./common":{
-      "types": "./dist/lib/es5/types/common.d.ts",
-      "default": "./dist/lib/es5/common/common.js",
-      "import": "./dist/lib/es6/common/common.js"
-    },
-    "./mint":{
-      "types": "./dist/lib/es5/types/mint.d.ts",
-      "default": "./dist/lib/es5/mint/mint.js",
-      "import": "./dist/lib/es6/mint/mint.js"
-    },
-    "./client":{
-      "types": "./dist/lib/es5/types/client.d.ts",
-      "default": "./dist/lib/es5/client/client.js",
-      "import": "./dist/lib/es6/client/client.js"
-    }
-    ,
-    "./client/NUT09":{
-      "types": "./dist/lib/es5/types/client.d.ts",
-      "default": "./dist/lib/es5/client/NUT09.js",
-      "import": "./dist/lib/es6/client/NUT09.js"
-    }
-    ,
-    "./client/NUT11":{
-      "types": "./dist/lib/es5/types/client.d.ts",
-      "default": "./dist/lib/es5/client/NUT11.js",
-      "import": "./dist/lib/es6/client/NUT11.js"
-    }
-  }
+	"exports": {
+		"./common": {
+			"types": "./dist/lib/es5/types/common.d.ts",
+			"default": "./dist/lib/es5/common/common.js",
+			"import": "./dist/lib/es6/common/common.js"
+		},
+		"./mint": {
+			"types": "./dist/lib/es5/types/mint.d.ts",
+			"default": "./dist/lib/es5/mint/mint.js",
+			"import": "./dist/lib/es6/mint/mint.js"
+		},
+		"./client": {
+			"types": "./dist/lib/es5/types/client.d.ts",
+			"default": "./dist/lib/es5/client/client.js",
+			"import": "./dist/lib/es6/client/client.js"
+		},
+		"./client/NUT09": {
+			"types": "./dist/lib/es5/types/client.d.ts",
+			"default": "./dist/lib/es5/client/NUT09.js",
+			"import": "./dist/lib/es6/client/NUT09.js"
+		},
+		"./client/NUT11": {
+			"types": "./dist/lib/es5/types/client.d.ts",
+			"default": "./dist/lib/es5/client/NUT11.js",
+			"import": "./dist/lib/es6/client/NUT11.js"
+		}
+	}
 }
