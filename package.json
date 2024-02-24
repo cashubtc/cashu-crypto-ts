@@ -1,11 +1,12 @@
 {
 	"name": "@gandlaf21/cashu-crypto",
+  "type": "module",
 	"version": "0.1.4",
 	"description": "",
-	"main": "dist/lib/es5/index.js",
-	"module": "dist/lib/es6/index.js",
+	"main": "modules/index.js",
+	"module": "modules/index.js",
 	"scripts": {
-		"compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json",
+		"compile": "rm -rf dist/lib && tsc",
 		"test": "jest --coverage --maxWorkers=1",
 		"dev": "tsc --watch",
 		"lint": "eslint --ext .js,.ts .",
@@ -51,29 +52,34 @@
 	},
 	"exports": {
 		"./common": {
-			"types": "./dist/lib/es5/types/common.d.ts",
-			"default": "./dist/lib/es5/common/common.js",
-			"import": "./dist/lib/es6/common/common.js"
+			"types": "./modules/common/index.d.ts",
+			"default": "./modules/common/index.js",
+			"import": "./modules/common/index.js"
 		},
 		"./mint": {
-			"types": "./dist/lib/es5/types/mint.d.ts",
-			"default": "./dist/lib/es5/mint/mint.js",
-			"import": "./dist/lib/es6/mint/mint.js"
+			"types": "./modules/mint/index.d.ts",
+			"default": "./modules/mint/index.js",
+			"import": "./modules/mint/index.js"
 		},
 		"./client": {
-			"types": "./dist/lib/es5/types/client.d.ts",
-			"default": "./dist/lib/es5/client/client.js",
-			"import": "./dist/lib/es6/client/client.js"
+			"types": "./modules/client/index.d.ts",
+			"default": "./modules/client/index.js",
+			"import": "./modules/client/index.js"
 		},
 		"./client/NUT09": {
-			"types": "./dist/lib/es5/types/client.d.ts",
-			"default": "./dist/lib/es5/client/NUT09.js",
-			"import": "./dist/lib/es6/client/NUT09.js"
+			"types": "./modules/client/NUT09.d.ts",
+			"default": "./modules/client/NUT09.js",
+			"import": "./modules/client/NUT09.js"
 		},
 		"./client/NUT11": {
-			"types": "./dist/lib/es5/types/client.d.ts",
-			"default": "./dist/lib/es5/client/NUT11.js",
-			"import": "./dist/lib/es6/client/NUT11.js"
+			"types": "./modules/client/NUT11.d.ts",
+			"default": "./modules/client/NUT11.js",
+			"import": "./modules/client/NUT11.js"
+		},
+    "./mint/NUT11": {
+			"types": "./modules/mint/NUT11.d.ts",
+			"default": "./modules/mint/NUT11.js",
+			"import": "./modules/mint/NUT11.js"
 		}
 	}
 }

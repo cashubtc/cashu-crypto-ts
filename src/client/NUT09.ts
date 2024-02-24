@@ -1,5 +1,5 @@
 import { HDKey } from '@scure/bip32';
-import { getKeysetIdInt } from '../common/common';
+import { getKeysetIdInt } from '../common/index.js';
 import { generateMnemonic, mnemonicToSeedSync } from '@scure/bip39';
 import { wordlist } from '@scure/bip39/wordlists/english';
 

@@ -1,4 +1,4 @@
-import { Keyset, MintKeys } from './common';
+import { Keyset, MintKeys } from './common.js';
 
 export type KeysetPair = {
 	keysetId: string;

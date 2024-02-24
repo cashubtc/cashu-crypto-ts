@@ -1,7 +1,7 @@
 import { schnorr } from '@noble/curves/secp256k1';
-import { Proof, SigFlag, Tags } from '../types/common';
+import { Proof, SigFlag, Tags } from '../types/common.js';
 import { sha256 } from '@noble/hashes/sha256';
-import { parseSecret } from '../common/NUT11';
+import { parseSecret } from '../common/NUT11.js';
 
 export const verifyP2PKSig = (proof: Proof) => {
 	if (!proof.witness) {

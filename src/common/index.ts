@@ -2,8 +2,8 @@ import { ProjPointType } from '@noble/curves/abstract/weierstrass';
 import { secp256k1 } from '@noble/curves/secp256k1';
 import { sha256 } from '@noble/hashes/sha256';
 import { bytesToHex, hexToBytes } from '@noble/curves/abstract/utils';
-import { bytesToNumber, encodeBase64toUint8, hexToNumber } from '../util/utils';
-import { MintKeys, SerializedMintKeys } from '../types/common';
+import { bytesToNumber, encodeBase64toUint8, hexToNumber } from '../util/utils.js';
+import { MintKeys, SerializedMintKeys } from '../types/common.js';
 
 const DOMAIN_SEPARATOR = hexToBytes('536563703235366b315f48617368546f43757276655f43617368755f');
 

@@ -1,10 +1,10 @@
 import { ProjPointType } from '@noble/curves/abstract/weierstrass';
 import { secp256k1 } from '@noble/curves/secp256k1';
 import { bytesToHex, hexToBytes, randomBytes } from '@noble/hashes/utils';
-import { bytesToNumber } from '../util/utils';
-import { BlindSignature, Proof, SerializedBlindedMessage, SerializedProof } from '../types/common';
-import { hashToCurve, pointFromHex } from '../common/common';
-import { BlindedMessage } from '../types/client';
+import { bytesToNumber } from '../util/utils.js';
+import { BlindSignature, Proof, SerializedBlindedMessage, SerializedProof } from '../types/common.js';
+import { hashToCurve, pointFromHex } from '../common/index.js';
+import { BlindedMessage } from '../types/client.js';
 
 export function createRandomBlindedMessage(): BlindedMessage {
 	return blindMessage(randomBytes(32));

@@ -1,5 +1,5 @@
 import { createBlindSignature, verifyProof } from '../../src/mint/mint';
-import { constructProofFromPromise, createRandomBlindedMessage } from '../../src/client/client';
+import { constructProofFromPromise, createRandomBlindedMessage } from '../../src/client';
 import { secp256k1 } from "@noble/curves/secp256k1";
 import { deriveKeysetId, hashToCurve, pointFromHex, deserializeMintKeys, serializeMintKeys } from '../../src/common/common';
 import { bytesToHex } from '@noble/curves/abstract/utils';

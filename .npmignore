@@ -1,3 +1,5 @@
-/src
-/test
-/coverage
+/src/
+/test/
+/coverage/
+/docs/
+/.github/

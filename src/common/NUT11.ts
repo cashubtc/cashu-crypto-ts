@@ -1,4 +1,4 @@
-import { Secret } from '../types/common';
+import { Secret } from '../types/common.js';
 
 export const parseSecret = (secret: string | Uint8Array): Secret => {
 	try {

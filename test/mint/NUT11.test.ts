@@ -1,5 +1,5 @@
 import { bytesToHex, randomBytes } from '@noble/hashes/utils';
-import { pointFromHex } from '../../src/common/common';
+import { pointFromHex } from '../../src/common';
 import { verifyP2PKSig } from '../../src/mint/NUT11';
 import { Proof } from '../../src/types/common';
 describe('test p2pk verify', () => {

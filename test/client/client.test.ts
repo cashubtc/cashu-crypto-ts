@@ -1,7 +1,7 @@
 import { hexToBytes } from '@noble/curves/abstract/utils';
 import { bytesToNumber } from '../../src/util/utils';
-import { blindMessage, unblindSignature } from '../../src/client/client';
-import { pointFromHex } from '../../src/common/common';
+import { blindMessage, unblindSignature } from '../../src/client';
+import { pointFromHex } from '../../src/common';
 
 const SECRET_MESSAGE = 'test_message';
 
