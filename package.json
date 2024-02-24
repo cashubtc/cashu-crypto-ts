@@ -1,7 +1,7 @@
 {
 	"name": "@gandlaf21/cashu-crypto",
 	"type": "module",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"description": "Basic cashu crypto functions",
 	"files": [
 		"src",
@@ -80,7 +80,6 @@
 		},
 		"./modules/mint/NUT11": {
 			"types": "./modules/mint/NUT11.d.ts",
-			"default": "./modules/esm/mint/NUT11.js",
 			"default": "./modules/mint/NUT11.js"
 		}
 	}
