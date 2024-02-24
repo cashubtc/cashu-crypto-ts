@@ -14,7 +14,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/gandlaf21/cashu-crypto-ts.git"
+		"url": "git+https://github.com/gandlafbtc/cashu-crypto-ts.git"
 	},
 	"keywords": [
 		"blindsignature",
