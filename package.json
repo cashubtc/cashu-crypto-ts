@@ -5,6 +5,10 @@
 	"description": "",
 	"main": "modules/index.js",
 	"module": "modules/index.js",
+	"files": [
+		"src",
+		"modules"
+	],
 	"scripts": {
 		"compile": "rm -rf dist/lib && tsc",
 		"test": "jest --coverage --maxWorkers=1",
