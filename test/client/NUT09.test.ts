@@ -1,6 +1,6 @@
 import { bytesToHex } from '@noble/curves/abstract/utils';
-import { deriveSeedFromMnemonic } from '../../src/client/NUT09';
-import { deriveBlindingFactor, deriveSecret } from '../../src/client/NUT09';
+import { deriveSeedFromMnemonic } from '../../src/client/NUT09.js';
+import { deriveSecret } from '../../src/client/NUT09.js';
 import { HDKey } from '@scure/bip32';
 
 const mnemonic = 'half depart obvious quality work element tank gorilla view sugar picture humble';
@@ -39,12 +39,6 @@ describe('testing deterministic secrets', () => {
 		const secret4 = deriveSecret(seed, '009a1f293253e41e', 3);
 		const secret5 = deriveSecret(seed, '009a1f293253e41e', 4);
 
-		const bf1 = deriveBlindingFactor(seed, '009a1f293253e41e', 0);
-		const bf2 = deriveBlindingFactor(seed, '009a1f293253e41e', 1);
-		const bf3 = deriveBlindingFactor(seed, '009a1f293253e41e', 2);
-		const bf4 = deriveBlindingFactor(seed, '009a1f293253e41e', 3);
-		const bf5 = deriveBlindingFactor(seed, '009a1f293253e41e', 4);
-
 		expect(bytesToHex(secret1)).toBe(secrets[0]);
 		expect(bytesToHex(secret2)).toBe(secrets[1]);
 		expect(bytesToHex(secret3)).toBe(secrets[2]);
@@ -57,8 +51,6 @@ describe('testing deterministic blindedMessage', () => {
 	const secrets = ['485875df74771877439ac06339e284c3acfcd9be7abf3bc20b516faeadfe77ae'];
 	test('derive Secret', async () => {
 		const secret1 = deriveSecret(seed, '009a1f293253e41e', 0);
-
-		const bf1 = deriveBlindingFactor(seed, '009a1f293253e41e', 0);
 
 		expect(bytesToHex(secret1)).toBe(secrets[0]);
 

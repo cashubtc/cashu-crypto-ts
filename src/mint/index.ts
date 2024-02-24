@@ -5,7 +5,6 @@ import { BlindSignature, IntRange, MintKeys, Proof } from '../types/common.js';
 import { KeysetPair } from '../types/mint.js';
 import { createRandomPrivateKey, deriveKeysetId, hashToCurve } from '../common/index.js';
 import { HDKey } from '@scure/bip32';
-import { bytesToHex } from '@noble/hashes/utils';
 
 const DERIVATION_PATH = "m/0'/0'/0'";
 
@@ -33,9 +32,19 @@ export function createNewMintKeys(pow2height: IntRange<0, 65>, seed?: Uint8Array
 	}
 	while (counter < pow2height) {
 		const index: string = (2n ** counter).toString();
-		privKeys[index] = masterKey
-			? masterKey.derive(`${DERIVATION_PATH}/${counter}`).privateKey
-			: createRandomPrivateKey();
+		if (masterKey) {
+			const k = masterKey.derive(`${DERIVATION_PATH}/${counter}`).privateKey
+			if (k) {
+				privKeys[index] = k
+			}
+			else {
+				throw new Error(`Could not derive Private key from: ${DERIVATION_PATH}/${counter}`);
+			}
+		}
+		else {
+			privKeys[index]= createRandomPrivateKey();
+		}
+
 		pubKeys[index] = getPubKeyFromPrivKey(privKeys[index]);
 		counter++;
 	}

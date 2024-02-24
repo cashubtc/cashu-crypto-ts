@@ -1,5 +1,5 @@
 import { schnorr } from '@noble/curves/secp256k1';
-import { Proof, SigFlag, Tags } from '../types/common.js';
+import { Proof } from '../types/common.js';
 import { sha256 } from '@noble/hashes/sha256';
 import { parseSecret } from '../common/NUT11.js';
 

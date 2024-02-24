@@ -1,5 +1,5 @@
 import { hexToBytes } from '@noble/curves/abstract/utils';
-import { bytesToNumber } from '../../src/util/utils';
+import { bytesToNumber } from '../../src/util/utils.js';
 import { blindMessage, unblindSignature } from '../../src/client';
 import { pointFromHex } from '../../src/common';
 

@@ -1,7 +1,7 @@
-import { createBlindSignature, verifyProof } from '../../src/mint/mint';
+import { createBlindSignature, verifyProof } from '../../src/mint';
 import { constructProofFromPromise, createRandomBlindedMessage } from '../../src/client';
 import { secp256k1 } from "@noble/curves/secp256k1";
-import { deriveKeysetId, hashToCurve, pointFromHex, deserializeMintKeys, serializeMintKeys } from '../../src/common/common';
+import { deriveKeysetId, hashToCurve, pointFromHex, deserializeMintKeys, serializeMintKeys } from '../../src/common';
 import { bytesToHex } from '@noble/curves/abstract/utils';
 import { hexToBytes } from '@noble/hashes/utils';
 import { SerializedMintKeys } from '../../src/types/common';

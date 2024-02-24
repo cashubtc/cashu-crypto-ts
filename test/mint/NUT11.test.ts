@@ -1,7 +1,7 @@
 import { bytesToHex, randomBytes } from '@noble/hashes/utils';
 import { pointFromHex } from '../../src/common';
-import { verifyP2PKSig } from '../../src/mint/NUT11';
-import { Proof } from '../../src/types/common';
+import { verifyP2PKSig } from '../../src/mint/NUT11.js';
+import { Proof } from '../../src/types/common.js';
 describe('test p2pk verify', () => {
 	test('test no witness', () => {
 		const proof: Proof = {

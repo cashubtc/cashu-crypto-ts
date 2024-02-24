@@ -1,6 +1,6 @@
 import { hexToBytes } from '@noble/hashes/utils';
 import { blindMessage } from '../../src/client';
-import { createBlindSignature, createNewMintKeys } from '../../src/mint/mint';
+import { createBlindSignature, createNewMintKeys } from '../../src/mint';
 import { hexToNumber } from '../../src/util/utils';
 import { serializeMintKeys } from '../../src/common';
 import { PUBKEYS } from '../consts';
