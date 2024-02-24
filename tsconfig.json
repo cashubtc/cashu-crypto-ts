@@ -1,12 +1,10 @@
 {
-	"compilerOptions": {
-		"module": "Node16",
-		"target": "ES2020",
-		"lib": ["ES2020", "DOM"],
-		"declaration": true,
-		"outDir": "./modules",
-		"moduleResolution": "Node16",
-		"noImplicitAny": true
-	},
-	"include": ["src/**/*"]
-}
+    "extends": "./tsconfig.esm.json",
+    "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "./modules",
+      "declaration": true,
+      "declarationMap": true
+    }
+  }

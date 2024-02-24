@@ -2,15 +2,13 @@
 	"name": "@gandlaf21/cashu-crypto",
 	"type": "module",
 	"version": "0.1.6",
-	"description": "",
-	"main": "modules/index.js",
-	"module": "modules/index.js",
+	"description": "Basic cashu crypto functions",
 	"files": [
 		"src",
 		"modules"
 	],
 	"scripts": {
-		"compile": "rm -rf modules && tsc",
+		"compile": "rm -rf modules && tsc && tsc -p tsconfig.esm.json",
 		"test": "jest --coverage --maxWorkers=1",
 		"dev": "tsc --watch",
 		"lint": "eslint --ext .js,.ts .",
@@ -57,32 +55,32 @@
 	"exports": {
 		"./modules/common": {
 			"types": "./modules/common/index.d.ts",
-			"default": "./modules/common/index.js",
+			"default": "./modules/esm/common/index.js",
 			"import": "./modules/common/index.js"
 		},
 		"./modules/mint": {
 			"types": "./modules/mint/index.d.ts",
-			"default": "./modules/mint/index.js",
+			"default": "./modules/esm/mint/index.js",
 			"import": "./modules/mint/index.js"
 		},
 		"./modules/client": {
 			"types": "./modules/client/index.d.ts",
-			"default": "./modules/client/index.js",
+			"default": "./modules/esm/client/index.js",
 			"import": "./modules/client/index.js"
 		},
 		"./modules/client/NUT09": {
 			"types": "./modules/client/NUT09.d.ts",
-			"default": "./modules/client/NUT09.js",
+			"default": "./modules/esm/client/NUT09.js",
 			"import": "./modules/client/NUT09.js"
 		},
 		"./modules/client/NUT11": {
 			"types": "./modules/client/NUT11.d.ts",
-			"default": "./modules/client/NUT11.js",
+			"default": "./modules/esm/client/NUT11.js",
 			"import": "./modules/client/NUT11.js"
 		},
 		"./modules/mint/NUT11": {
 			"types": "./modules/mint/NUT11.d.ts",
-			"default": "./modules/mint/NUT11.js",
+			"default": "./modules/esm/mint/NUT11.js",
 			"import": "./modules/mint/NUT11.js"
 		}
 	}
