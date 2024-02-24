@@ -55,33 +55,33 @@
 	"exports": {
 		"./modules/common": {
 			"types": "./modules/common/index.d.ts",
-			"default": "./modules/esm/common/index.js",
-			"import": "./modules/common/index.js"
+			"import": "./modules/esm/common/index.js",
+			"default": "./modules/common/index.js"
 		},
 		"./modules/mint": {
 			"types": "./modules/mint/index.d.ts",
-			"default": "./modules/esm/mint/index.js",
-			"import": "./modules/mint/index.js"
+			"import": "./modules/esm/mint/index.js",
+			"default": "./modules/mint/index.js"
 		},
 		"./modules/client": {
 			"types": "./modules/client/index.d.ts",
-			"default": "./modules/esm/client/index.js",
-			"import": "./modules/client/index.js"
+			"import": "./modules/esm/client/index.js",
+			"default": "./modules/client/index.js"
 		},
 		"./modules/client/NUT09": {
 			"types": "./modules/client/NUT09.d.ts",
-			"default": "./modules/esm/client/NUT09.js",
-			"import": "./modules/client/NUT09.js"
+			"import": "./modules/esm/client/NUT09.js",
+			"default": "./modules/client/NUT09.js"
 		},
 		"./modules/client/NUT11": {
 			"types": "./modules/client/NUT11.d.ts",
-			"default": "./modules/esm/client/NUT11.js",
-			"import": "./modules/client/NUT11.js"
+			"import": "./modules/esm/client/NUT11.js",
+			"default": "./modules/client/NUT11.js"
 		},
 		"./modules/mint/NUT11": {
 			"types": "./modules/mint/NUT11.d.ts",
 			"default": "./modules/esm/mint/NUT11.js",
-			"import": "./modules/mint/NUT11.js"
+			"default": "./modules/mint/NUT11.js"
 		}
 	}
 }
