@@ -55,32 +55,32 @@
 		"typescript": "^4.9.4"
 	},
 	"exports": {
-		"./common": {
+		"./modules/common": {
 			"types": "./modules/common/index.d.ts",
 			"default": "./modules/common/index.js",
 			"import": "./modules/common/index.js"
 		},
-		"./mint": {
+		"./modules/mint": {
 			"types": "./modules/mint/index.d.ts",
 			"default": "./modules/mint/index.js",
 			"import": "./modules/mint/index.js"
 		},
-		"./client": {
+		"./modules/client": {
 			"types": "./modules/client/index.d.ts",
 			"default": "./modules/client/index.js",
 			"import": "./modules/client/index.js"
 		},
-		"./client/NUT09": {
+		"./modules/client/NUT09": {
 			"types": "./modules/client/NUT09.d.ts",
 			"default": "./modules/client/NUT09.js",
 			"import": "./modules/client/NUT09.js"
 		},
-		"./client/NUT11": {
+		"./modules/client/NUT11": {
 			"types": "./modules/client/NUT11.d.ts",
 			"default": "./modules/client/NUT11.js",
 			"import": "./modules/client/NUT11.js"
 		},
-		"./mint/NUT11": {
+		"./modules/mint/NUT11": {
 			"types": "./modules/mint/NUT11.d.ts",
 			"default": "./modules/mint/NUT11.js",
 			"import": "./modules/mint/NUT11.js"
