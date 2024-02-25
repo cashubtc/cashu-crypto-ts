@@ -2,8 +2,8 @@ import { PrivKey, bytesToHex, hexToBytes } from '@noble/curves/abstract/utils';
 import { sha256 } from '@noble/hashes/sha256';
 import { schnorr } from '@noble/curves/secp256k1';
 import { randomBytes } from '@noble/hashes/utils';
-import { Proof, Secret } from '../types/common.js';
 import { parseSecret } from '../common/NUT11.js';
+import { Proof, Secret } from '../common/index.js';
 
 export const createP2PKsecret = (pubkey: string): Uint8Array => {
 	const newSecret: Secret = [

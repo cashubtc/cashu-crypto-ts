@@ -1,8 +1,7 @@
 import { schnorr } from '@noble/curves/secp256k1';
 import { createP2PKsecret, getSignedProof } from '../../src/client/NUT11.js';
 import { bytesToHex } from '@noble/curves/abstract/utils';
-import { Proof } from '../../src/types/common.js';
-import { pointFromHex } from '../../src/common';
+import { Proof, pointFromHex } from '../../src/common';
 import { parseSecret } from '../../src/common/NUT11.js';
 import { verifyP2PKSig } from '../../src/mint/NUT11.js';
 

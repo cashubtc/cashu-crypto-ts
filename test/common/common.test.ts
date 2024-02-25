@@ -6,11 +6,11 @@ import {
 	hashToCurve,
 	pointFromHex,
 	deserializeMintKeys,
-	serializeMintKeys
+	serializeMintKeys,
+	SerializedMintKeys
 } from '../../src/common';
 import { bytesToHex } from '@noble/curves/abstract/utils';
 import { hexToBytes } from '@noble/hashes/utils';
-import { SerializedMintKeys } from '../../src/types/common';
 import { PUBKEYS } from '../consts';
 describe('test crypto scheme', () => {
 	test('Test crypto scheme', async () => {
