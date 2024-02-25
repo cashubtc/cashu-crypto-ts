@@ -2,6 +2,7 @@
 	"name": "@gandlaf21/cashu-crypto",
 	"version": "0.1.9",
 	"description": "Basic cashu crypto functions",
+	"main": "/modules",
 	"files": [
 		"src",
 		"modules"
@@ -52,6 +53,11 @@
 		"typescript": "^4.9.4"
 	},
 	"exports": {
+		".": {
+			"types": "./modules/index.d.ts",
+			"import": "./modules/esm/index.js",
+			"default": "./modules/index.js"
+		},
 		"./modules/common": {
 			"types": "./modules/common/index.d.ts",
 			"import": "./modules/esm/common/index.js",
