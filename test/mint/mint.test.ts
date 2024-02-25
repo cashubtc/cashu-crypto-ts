@@ -17,10 +17,9 @@ describe('test blind sig', () => {
 			'025cc16fe33b953e2ace39653efb3e7a7049711ae1d8a2f7a9108753f1cdea742b'
 		);
 	});
-})
+});
 describe('new mint keys', () => {
 	test('mint keys from seed', async () => {
-	
 		const keys = createNewMintKeys(
 			64,
 			hexToBytes('0000000000000000000000000000000000000000000000000000000000000001')

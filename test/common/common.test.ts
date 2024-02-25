@@ -1,31 +1,40 @@
 import { createBlindSignature, verifyProof } from '../../src/mint';
 import { constructProofFromPromise, createRandomBlindedMessage } from '../../src/client';
-import { secp256k1 } from "@noble/curves/secp256k1";
-import { deriveKeysetId, hashToCurve, pointFromHex, deserializeMintKeys, serializeMintKeys } from '../../src/common';
+import { secp256k1 } from '@noble/curves/secp256k1';
+import {
+	deriveKeysetId,
+	hashToCurve,
+	pointFromHex,
+	deserializeMintKeys,
+	serializeMintKeys
+} from '../../src/common';
 import { bytesToHex } from '@noble/curves/abstract/utils';
 import { hexToBytes } from '@noble/hashes/utils';
 import { SerializedMintKeys } from '../../src/types/common';
 import { PUBKEYS } from '../consts';
 describe('test crypto scheme', () => {
-    test('Test crypto scheme', async () => {
+	test('Test crypto scheme', async () => {
+		const mintPrivKey = secp256k1.utils.randomPrivateKey();
+		const mintPubKey = secp256k1.getPublicKey(mintPrivKey, true);
 
-        const mintPrivKey = secp256k1.utils.randomPrivateKey() 
-        const mintPubKey = secp256k1.getPublicKey(mintPrivKey, true)
-        
-        //Wallet(Bob)
-        const blindedMessage = createRandomBlindedMessage()
-        
-        //Mint
-        const blindSignature = createBlindSignature(blindedMessage.B_,mintPrivKey, 1, "")
-        
+		//Wallet(Bob)
+		const blindedMessage = createRandomBlindedMessage();
 
-        //Wallet
-        const proof = constructProofFromPromise(blindSignature, blindedMessage.r,blindedMessage.secret, pointFromHex(bytesToHex(mintPubKey)))
-        
-        //Mint 
-        const isValid = verifyProof(proof, mintPrivKey)
-        expect(isValid).toBeTruthy()
-    });
+		//Mint
+		const blindSignature = createBlindSignature(blindedMessage.B_, mintPrivKey, 1, '');
+
+		//Wallet
+		const proof = constructProofFromPromise(
+			blindSignature,
+			blindedMessage.r,
+			blindedMessage.secret,
+			pointFromHex(bytesToHex(mintPubKey))
+		);
+
+		//Mint
+		const isValid = verifyProof(proof, mintPrivKey);
+		expect(isValid).toBeTruthy();
+	});
 });
 
 describe('testing hash to curve', () => {
@@ -44,27 +53,21 @@ describe('testing hash to curve', () => {
 	});
 });
 
+describe('serialize mint keys', () => {
+	test('derive', () => {
+		const keys: SerializedMintKeys = PUBKEYS;
+		const deserializedKeys = deserializeMintKeys(keys);
+		const serializedKeys = serializeMintKeys(deserializedKeys);
+		expect(serializedKeys).toEqual(keys);
+	});
+});
 
-describe('serialize mint keys', ()=> {
-    test('derive', ()=>{
-        const keys: SerializedMintKeys = PUBKEYS
-        const deserializedKeys = deserializeMintKeys(keys)
-        const serializedKeys = serializeMintKeys(deserializedKeys)
-        expect(serializedKeys).toEqual(keys)        
-    })
-})
-
-
-describe('test keyset derivation', ()=> {
-    test('derive', ()=>{
-        const keys: SerializedMintKeys = PUBKEYS
-        const deserializedKeys = deserializeMintKeys(keys)
-        const keysetId = deriveKeysetId(deserializedKeys)
-        console.log(keysetId)
-        expect(keysetId).toBe("00a627821fbe96e4")
-    })
-})
-
-
-
-
+describe('test keyset derivation', () => {
+	test('derive', () => {
+		const keys: SerializedMintKeys = PUBKEYS;
+		const deserializedKeys = deserializeMintKeys(keys);
+		const keysetId = deriveKeysetId(deserializedKeys);
+		console.log(keysetId);
+		expect(keysetId).toBe('00a627821fbe96e4');
+	});
+});

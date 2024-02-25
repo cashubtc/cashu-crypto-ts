@@ -7,7 +7,6 @@ import { HDKey } from '@scure/bip32';
 
 const DERIVATION_PATH = "m/0'/0'/0'";
 
-
 export type KeysetPair = {
 	keysetId: string;
 	pubKeys: MintKeys;
@@ -17,7 +16,6 @@ export type KeysetPair = {
 export type KeysetWithKeys = Keyset & {
 	pubKeys: MintKeys;
 };
-
 
 export function createBlindSignature(
 	B_: ProjPointType<bigint>,
@@ -44,16 +42,14 @@ export function createNewMintKeys(pow2height: IntRange<0, 65>, seed?: Uint8Array
 	while (counter < pow2height) {
 		const index: string = (2n ** counter).toString();
 		if (masterKey) {
-			const k = masterKey.derive(`${DERIVATION_PATH}/${counter}`).privateKey
+			const k = masterKey.derive(`${DERIVATION_PATH}/${counter}`).privateKey;
 			if (k) {
-				privKeys[index] = k
-			}
-			else {
+				privKeys[index] = k;
+			} else {
 				throw new Error(`Could not derive Private key from: ${DERIVATION_PATH}/${counter}`);
 			}
-		}
-		else {
-			privKeys[index]= createRandomPrivateKey();
+		} else {
+			privKeys[index] = createRandomPrivateKey();
 		}
 
 		pubKeys[index] = getPubKeyFromPrivKey(privKeys[index]);

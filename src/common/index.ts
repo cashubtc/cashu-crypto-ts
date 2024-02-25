@@ -114,25 +114,28 @@ export function createRandomPrivateKey() {
 
 export function serializeMintKeys(mintKeys: MintKeys): SerializedMintKeys {
 	const serializedMintKeys: SerializedMintKeys = {};
-	Object.keys(mintKeys).forEach((p)=>{		
-			serializedMintKeys[p] = bytesToHex(mintKeys[p]);
-	})
+	Object.keys(mintKeys).forEach((p) => {
+		serializedMintKeys[p] = bytesToHex(mintKeys[p]);
+	});
 	return serializedMintKeys;
 }
 
 export function deserializeMintKeys(serializedMintKeys: SerializedMintKeys): MintKeys {
 	const mintKeys: MintKeys = {};
-	Object.keys(serializedMintKeys).forEach((p)=>{		
+	Object.keys(serializedMintKeys).forEach((p) => {
 		mintKeys[p] = hexToBytes(serializedMintKeys[p]);
-})
+	});
 	return mintKeys;
 }
 
 export function deriveKeysetId(keys: MintKeys): string {
-	const KEYSET_VERSION = '00'
-	const mapBigInt = (k: [string, string]):[bigint,string]=>{return [BigInt(k[0]),k[1]]}
-	const pubkeysConcat = Object.entries(serializeMintKeys(keys)).map(mapBigInt)
-		.sort((a, b) => (a[0] < b[0]) ? -1 : ((a[0] > b[0]) ? 1 : 0))
+	const KEYSET_VERSION = '00';
+	const mapBigInt = (k: [string, string]): [bigint, string] => {
+		return [BigInt(k[0]), k[1]];
+	};
+	const pubkeysConcat = Object.entries(serializeMintKeys(keys))
+		.map(mapBigInt)
+		.sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0))
 		.map(([, pubKey]) => pubKey)
 		.join('');
 	const hash = sha256(pubkeysConcat);
