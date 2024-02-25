@@ -2,7 +2,7 @@
 	"name": "@gandlaf21/cashu-crypto",
 	"version": "0.1.9",
 	"description": "Basic cashu crypto functions",
-	"main": "/modules",
+	"main": "./modules/index.js",
 	"files": [
 		"src",
 		"modules"
@@ -58,32 +58,32 @@
 			"import": "./modules/esm/index.js",
 			"default": "./modules/index.js"
 		},
-		"./modules/common": {
+		"./common": {
 			"types": "./modules/common/index.d.ts",
 			"import": "./modules/esm/common/index.js",
 			"default": "./modules/common/index.js"
 		},
-		"./modules/mint": {
+		"./mint": {
 			"types": "./modules/mint/index.d.ts",
 			"import": "./modules/esm/mint/index.js",
 			"default": "./modules/mint/index.js"
 		},
-		"./modules/client": {
+		"./client": {
 			"types": "./modules/client/index.d.ts",
 			"import": "./modules/esm/client/index.js",
 			"default": "./modules/client/index.js"
 		},
-		"./modules/client/NUT09": {
+		"./client/NUT09": {
 			"types": "./modules/client/NUT09.d.ts",
 			"import": "./modules/esm/client/NUT09.js",
 			"default": "./modules/client/NUT09.js"
 		},
-		"./modules/client/NUT11": {
+		"./client/NUT11": {
 			"types": "./modules/client/NUT11.d.ts",
 			"import": "./modules/esm/client/NUT11.js",
 			"default": "./modules/client/NUT11.js"
 		},
-		"./modules/mint/NUT11": {
+		"./mint/NUT11": {
 			"types": "./modules/mint/NUT11.d.ts",
 			"default": "./modules/mint/NUT11.js"
 		}
