@@ -6,7 +6,10 @@
 		"declaration": true,
 		"outDir": "./modules/esm",
 		"moduleResolution": "Node16",
-		"noImplicitAny": true
+		"noImplicitAny": true,
+		"sourceMap": true,
+		"esModuleInterop": false,
+		"strict": true
 	},
 	"include": ["src/**/*"]
 }
