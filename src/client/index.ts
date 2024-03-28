@@ -9,6 +9,7 @@ import type {
 	SerializedProof
 } from '../common/index.js';
 import { hashToCurve, pointFromHex } from '../common/index.js';
+import { Witness } from '../common/index';
 
 export type BlindedMessage = {
 	B_: ProjPointType<bigint>;
@@ -61,7 +62,8 @@ export const serializeProof = (proof: Proof): SerializedProof => {
 		amount: proof.amount,
 		C: proof.C.toHex(true),
 		id: proof.id,
-		secret: bytesToHex(proof.secret)
+		secret: new TextDecoder().decode(proof.secret),
+		witness: proof.witness
 	};
 };
 
@@ -70,7 +72,8 @@ export const deserializeProof = (proof: SerializedProof): Proof => {
 		amount: proof.amount,
 		C: pointFromHex(proof.C),
 		id: proof.id,
-		secret: hexToBytes(proof.secret)
+		secret: new TextEncoder().encode(proof.secret),
+		witness: proof.witness
 	};
 };
 export const serializeBlindedMessage = (
