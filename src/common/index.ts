@@ -136,9 +136,16 @@ export function deriveKeysetId(keys: MintKeys): string {
 	const pubkeysConcat = Object.entries(serializeMintKeys(keys))
 		.map(mapBigInt)
 		.sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0))
-		.map(([, pubKey]) => pubKey)
-		.join('');
+		.map(([, pubKey]) => hexToBytes(pubKey)).reduce((prev,curr)=>mergeUInt8Arrays(prev,curr),new Uint8Array())
 	const hash = sha256(pubkeysConcat);
-	// return Buffer.from(hash).toString('base64').slice(0, 12);
-	return KEYSET_VERSION + bytesToHex(hash).slice(0, 14); // new version
+	const hashHex =  Buffer.from(hash).toString('hex').slice(0, 14)
+	return '00' + hashHex
 }
+
+function mergeUInt8Arrays(a1: Uint8Array, a2: Uint8Array): Uint8Array {
+	// sum of individual array lengths
+	const mergedArray = new Uint8Array(a1.length + a2.length);
+	mergedArray.set(a1);
+	mergedArray.set(a2, a1.length);
+	return mergedArray;
+  }

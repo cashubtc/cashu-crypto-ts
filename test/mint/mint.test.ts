@@ -3,7 +3,7 @@ import { blindMessage } from '../../src/client';
 import { createBlindSignature, createNewMintKeys } from '../../src/mint';
 import { hexToNumber } from '../../src/util/utils';
 import { serializeMintKeys } from '../../src/common';
-import { PUBKEYS } from '../consts';
+import { PUBKEYS, TEST_PRIV_KEY_PUBS } from '../consts';
 
 describe('test blind sig', () => {
 	test('blind sig', async () => {
@@ -22,11 +22,11 @@ describe('new mint keys', () => {
 	test('mint keys from seed', async () => {
 		const keys = createNewMintKeys(
 			64,
-			hexToBytes('0000000000000000000000000000000000000000000000000000000000000001')
+			new TextEncoder().encode("TEST_PRIVATE_KEY")
 		);
 		const serialized = serializeMintKeys(keys.pubKeys);
-
-		expect(serialized).toEqual(PUBKEYS);
+		console.log(serialized)
+		expect(serialized).toEqual(TEST_PRIV_KEY_PUBS)
 
 		const randomkeys = createNewMintKeys(64);
 		const serializedRandom = serializeMintKeys(randomkeys.pubKeys);

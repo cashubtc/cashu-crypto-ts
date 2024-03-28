@@ -68,6 +68,6 @@ describe('test keyset derivation', () => {
 		const deserializedKeys = deserializeMintKeys(keys);
 		const keysetId = deriveKeysetId(deserializedKeys);
 		console.log(keysetId);
-		expect(keysetId).toBe('00a627821fbe96e4');
+		expect(keysetId).toBe('009a1f293253e41e');
 	});
 });
