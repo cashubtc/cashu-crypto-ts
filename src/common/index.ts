@@ -47,6 +47,7 @@ export type SerializedProof = {
 	secret: string;
 	amount: number;
 	id: string;
+	witness?: Witness
 };
 
 export type SerializedBlindedMessage = {
