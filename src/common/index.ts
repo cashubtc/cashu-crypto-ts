@@ -47,13 +47,13 @@ export type SerializedProof = {
 	secret: string;
 	amount: number;
 	id: string;
-	witness?: Witness
+	witness?: string;
 };
 
 export type SerializedBlindedMessage = {
 	B_: string;
 	amount: number;
-	witness?: Witness;
+	witness?: string;
 };
 
 export type Secret = [WellKnownSecret, SecretData];

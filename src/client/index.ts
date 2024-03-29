@@ -63,7 +63,7 @@ export const serializeProof = (proof: Proof): SerializedProof => {
 		C: proof.C.toHex(true),
 		id: proof.id,
 		secret: new TextDecoder().decode(proof.secret),
-		witness: proof.witness
+		witness: JSON.stringify(proof.witness)
 	};
 };
 
@@ -73,7 +73,7 @@ export const deserializeProof = (proof: SerializedProof): Proof => {
 		C: pointFromHex(proof.C),
 		id: proof.id,
 		secret: new TextEncoder().encode(proof.secret),
-		witness: proof.witness
+		witness: proof.witness?JSON.parse(proof.witness):undefined
 	};
 };
 export const serializeBlindedMessage = (
