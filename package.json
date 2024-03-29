@@ -56,6 +56,11 @@
 			"import": "./modules/esm/index.js",
 			"default": "./modules/index.js"
 		},
+		"./modules/util": {
+			"types": "./modules/util/index.d.ts",
+			"import": "./modules/esm/util/index.js",
+			"default": "./modules/util/index.js"
+		},
 		"./modules/common": {
 			"types": "./modules/common/index.d.ts",
 			"import": "./modules/esm/common/index.js",
@@ -76,6 +81,11 @@
 			"import": "./modules/esm/client/NUT09.js",
 			"default": "./modules/client/NUT09.js"
 		},
+		"./modules/common/NUT11": {
+			"types": "./modules/common/NUT11.d.ts",
+			"import": "./modules/esm/common/NUT11.js",
+			"default": "./modules/common/NUT11.js"
+		},
 		"./modules/client/NUT11": {
 			"types": "./modules/client/NUT11.d.ts",
 			"import": "./modules/esm/client/NUT11.js",
@@ -83,6 +93,7 @@
 		},
 		"./modules/mint/NUT11": {
 			"types": "./modules/mint/NUT11.d.ts",
+			"import": "./modules/esm/mint/NUT11.js",
 			"default": "./modules/mint/NUT11.js"
 		}
 	}
