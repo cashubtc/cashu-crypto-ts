@@ -1,5 +1,5 @@
 {
-	"name": "@gandlaf21/cashu-crypto",
+	"name": "@cashu/crypto",
 	"version": "0.2.6",
 	"description": "Basic cashu crypto functions",
 	"main": "./modules/index.js",
@@ -17,7 +17,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/gandlafbtc/cashu-crypto-ts.git"
+		"url": "git+https://github.com/cashubtc/cashu-crypto-ts.git"
 	},
 	"keywords": [
 		"blindsignature",
