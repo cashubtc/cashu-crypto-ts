@@ -3,6 +3,7 @@ import { secp256k1 } from '@noble/curves/secp256k1';
 import { sha256 } from '@noble/hashes/sha256';
 import { bytesToHex, hexToBytes } from '@noble/curves/abstract/utils';
 import { bytesToNumber, encodeBase64toUint8, hexToNumber } from '../util/utils.js';
+import { Buffer } from 'buffer/';
 
 export type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
 	? Acc[number]
@@ -137,10 +138,11 @@ export function deriveKeysetId(keys: MintKeys): string {
 	const pubkeysConcat = Object.entries(serializeMintKeys(keys))
 		.map(mapBigInt)
 		.sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0))
-		.map(([, pubKey]) => hexToBytes(pubKey)).reduce((prev,curr)=>mergeUInt8Arrays(prev,curr),new Uint8Array())
+		.map(([, pubKey]) => hexToBytes(pubKey))
+		.reduce((prev, curr) => mergeUInt8Arrays(prev, curr), new Uint8Array());
 	const hash = sha256(pubkeysConcat);
-	const hashHex =  Buffer.from(hash).toString('hex').slice(0, 14)
-	return '00' + hashHex
+	const hashHex = Buffer.from(hash).toString('hex').slice(0, 14);
+	return '00' + hashHex;
 }
 
 function mergeUInt8Arrays(a1: Uint8Array, a2: Uint8Array): Uint8Array {
@@ -149,4 +151,4 @@ function mergeUInt8Arrays(a1: Uint8Array, a2: Uint8Array): Uint8Array {
 	mergedArray.set(a1);
 	mergedArray.set(a2, a1.length);
 	return mergedArray;
-  }
+}
