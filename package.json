@@ -1,6 +1,6 @@
 {
 	"name": "@cashu/crypto",
-	"version": "0.2.6",
+	"version": "0.2.7",
 	"description": "Basic cashu crypto functions",
 	"main": "./modules/index.js",
 	"files": [
