@@ -35,6 +35,12 @@ export type SerializedBlindSignature = {
 	id: string;
 };
 
+export type DLEQ = {
+	s: Uint8Array;	// signature
+	e: Uint8Array;	// challenge
+	r?: bigint; 	// optional: blinding factor
+};
+
 export type Proof = {
 	C: ProjPointType<bigint>;
 	secret: Uint8Array;
@@ -93,6 +99,17 @@ export function hashToCurve(secret: Uint8Array): ProjPointType<bigint> {
 		}
 	}
 	throw new Error('No valid point found');
+}
+
+export function hash_e(pubkeys: Array<ProjPointType<bigint>>): Uint8Array {
+	const hexStrings = pubkeys.map(p => p.toHex(false));
+    const e_ = hexStrings.join('');
+	const e = sha256(new TextEncoder().encode(e_));
+	return e;
+}
+
+export function pointFromBytes(bytes: Uint8Array) {
+	return secp256k1.ProjectivePoint.fromHex(bytesToHex(bytes));
 }
 
 export function pointFromHex(hex: string) {
