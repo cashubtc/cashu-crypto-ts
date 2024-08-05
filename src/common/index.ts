@@ -36,9 +36,9 @@ export type SerializedBlindSignature = {
 };
 
 export type DLEQ = {
-	s: Uint8Array;	// signature
-	e: Uint8Array;	// challenge
-	r?: bigint; 	// optional: blinding factor
+	s: Uint8Array; // signature
+	e: Uint8Array; // challenge
+	r?: bigint; // optional: blinding factor
 };
 
 export type Proof = {
@@ -102,8 +102,8 @@ export function hashToCurve(secret: Uint8Array): ProjPointType<bigint> {
 }
 
 export function hash_e(pubkeys: Array<ProjPointType<bigint>>): Uint8Array {
-	const hexStrings = pubkeys.map(p => p.toHex(false));
-    const e_ = hexStrings.join('');
+	const hexStrings = pubkeys.map((p) => p.toHex(false));
+	const e_ = hexStrings.join('');
 	const e = sha256(new TextEncoder().encode(e_));
 	return e;
 }
