@@ -3,7 +3,20 @@ import { createDLEQProof } from '../../src/mint/NUT12';
 import { verifyDLEQProof, verifyDLEQProof_reblind } from '../../src/client/NUT12';
 import { constructProofFromPromise, createRandomBlindedMessage } from '../../src/client';
 import { secp256k1 } from '@noble/curves/secp256k1';
-import { pointFromBytes } from '../../src/common';
+import { pointFromBytes, pointFromHex, hash_e } from '../../src/common';
+import { bytesToHex } from '@noble/hashes/utils';
+
+describe('test hash_e', () => {
+	test('test hash_e function', async () => {
+		const C_ = pointFromHex('02a9acc1e48c25eeeb9289b5031cc57da9fe72f3fe2861d264bdc074209b107ba2');
+		const K = pointFromHex('020000000000000000000000000000000000000000000000000000000000000001');
+		const R1 = pointFromHex('020000000000000000000000000000000000000000000000000000000000000001');
+		const R2 = pointFromHex('020000000000000000000000000000000000000000000000000000000000000001');
+		const e = hash_e([R1, R2, K, C_]);
+		console.log("e = "+bytesToHex(e));
+		expect(bytesToHex(e)).toEqual('a4dc034b74338c28c6bc3ea49731f2a24440fc7c4affc08b31a93fc9fbe6401e');
+	});
+});
 
 describe('test DLEQ scheme', () => {
 	test('test DLEQ scheme: Alice verifies', async () => {
