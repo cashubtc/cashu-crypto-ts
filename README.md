@@ -8,5 +8,4 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/@gandlaf21/cashu-crypto)
 [code coverage](https://gandlafbtc.github.io/cashu-crypto-ts/coverage)
 
-
 Basic crypto operations for cashu wallets and mints written in TypeScript
