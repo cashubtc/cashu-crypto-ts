@@ -15,6 +15,7 @@ export type BlindedMessage = {
 	B_: ProjPointType<bigint>;
 	r: bigint;
 	secret: Uint8Array;
+	witness?: Witness;
 };
 
 export function createRandomBlindedMessage(): BlindedMessage {

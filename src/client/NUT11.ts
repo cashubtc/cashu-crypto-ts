@@ -4,6 +4,8 @@ import { schnorr } from '@noble/curves/secp256k1';
 import { randomBytes } from '@noble/hashes/utils';
 import { parseSecret } from '../common/NUT11.js';
 import { Proof, Secret } from '../common/index.js';
+import { BlindedMessage, serializeBlindedMessage } from './index.js';
+import { ProjPointType } from '@noble/curves/abstract/weierstrass.js';
 
 export const createP2PKsecret = (pubkey: string): Uint8Array => {
 	const newSecret: Secret = [
@@ -23,6 +25,12 @@ export const signP2PKsecret = (secret: Uint8Array, privateKey: PrivKey) => {
 	return sig;
 };
 
+export const signBlindedMessage = (B_: string, privateKey: PrivKey) => {
+	const msgHash = sha256(B_);
+	const sig = schnorr.sign(msgHash, privateKey);
+	return sig;
+}
+
 export const getSignedProofs = (proofs: Array<Proof>, privateKey: string): Array<Proof> => {
 	return proofs.map((p) => {
 		try {
@@ -36,6 +44,17 @@ export const getSignedProofs = (proofs: Array<Proof>, privateKey: string): Array
 		}
 	});
 };
+
+export const getSignedOutput = (output: BlindedMessage, privateKey: PrivKey): BlindedMessage => {
+	const B_ = output.B_.toHex(true);
+	const signature = signBlindedMessage(B_, privateKey);
+	output.witness = { signatures: [bytesToHex(signature)] };
+	return output;
+}
+
+export const getSignedOutputs = (outputs: Array<BlindedMessage>, privateKey: string): Array<BlindedMessage> => {
+	return outputs.map(o => getSignedOutput(o, privateKey));
+}
 
 export const getSignedProof = (proof: Proof, privateKey: PrivKey): Proof => {
 	if (!proof.witness) {
