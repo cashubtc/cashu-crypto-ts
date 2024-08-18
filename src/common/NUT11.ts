@@ -1,4 +1,4 @@
-import { Secret } from "./index.js";
+import { Secret } from './index.js';
 
 export const parseSecret = (secret: string | Uint8Array): Secret => {
 	try {
