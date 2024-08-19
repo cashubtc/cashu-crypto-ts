@@ -29,7 +29,7 @@ export const signBlindedMessage = (B_: string, privateKey: PrivKey) => {
 	const msgHash = sha256(B_);
 	const sig = schnorr.sign(msgHash, privateKey);
 	return sig;
-}
+};
 
 export const getSignedProofs = (proofs: Array<Proof>, privateKey: string): Array<Proof> => {
 	return proofs.map((p) => {
@@ -50,11 +50,14 @@ export const getSignedOutput = (output: BlindedMessage, privateKey: PrivKey): Bl
 	const signature = signBlindedMessage(B_, privateKey);
 	output.witness = { signatures: [bytesToHex(signature)] };
 	return output;
-}
+};
 
-export const getSignedOutputs = (outputs: Array<BlindedMessage>, privateKey: string): Array<BlindedMessage> => {
-	return outputs.map(o => getSignedOutput(o, privateKey));
-}
+export const getSignedOutputs = (
+	outputs: Array<BlindedMessage>,
+	privateKey: string
+): Array<BlindedMessage> => {
+	return outputs.map((o) => getSignedOutput(o, privateKey));
+};
 
 export const getSignedProof = (proof: Proof, privateKey: PrivKey): Proof => {
 	if (!proof.witness) {
