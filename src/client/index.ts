@@ -10,6 +10,8 @@ import type {
 } from '../common/index.js';
 import { hashToCurve, pointFromHex } from '../common/index.js';
 import { Witness } from '../common/index';
+import { PrivKey } from '@noble/curves/abstract/utils.js';
+import { getSignedOutput } from './NUT11.js';
 
 export type BlindedMessage = {
 	B_: ProjPointType<bigint>;
@@ -18,17 +20,23 @@ export type BlindedMessage = {
 	witness?: Witness;
 };
 
-export function createRandomBlindedMessage(): BlindedMessage {
-	return blindMessage(randomBytes(32));
+export function createRandomBlindedMessage(privateKey?: PrivKey): BlindedMessage {
+	return blindMessage(randomBytes(32),
+		bytesToNumber(secp256k1.utils.randomPrivateKey()),
+		privateKey
+	);
 }
 
-export function blindMessage(secret: Uint8Array, r?: bigint): BlindedMessage {
+export function blindMessage(secret: Uint8Array, r?: bigint, privateKey?: PrivKey): BlindedMessage {
 	const Y = hashToCurve(secret);
 	if (!r) {
 		r = bytesToNumber(secp256k1.utils.randomPrivateKey());
 	}
 	const rG = secp256k1.ProjectivePoint.BASE.multiply(r);
 	const B_ = Y.add(rG);
+	if (privateKey !== undefined) {
+		return getSignedOutput({ B_, r, secret }, privateKey);
+	}
 	return { B_, r, secret };
 }
 
