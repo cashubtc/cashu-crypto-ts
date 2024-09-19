@@ -25,7 +25,7 @@ export const signP2PKsecret = (secret: Uint8Array, privateKey: PrivKey) => {
 	return sig;
 };
 
-export const signBlindedMessage = (B_: string, privateKey: PrivKey) => {
+export const signBlindedMessage = (B_: string, privateKey: PrivKey): Uint8Array => {
 	const msgHash = sha256(B_);
 	const sig = schnorr.sign(msgHash, privateKey);
 	return sig;
