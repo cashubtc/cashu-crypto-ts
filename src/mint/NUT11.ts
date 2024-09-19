@@ -45,7 +45,7 @@ export const verifyP2PKSig = (proof: Proof) => {
 	);
 };
 
-export const verifyP2PKSigOutput = (output: BlindedMessage, publicKey: string) => {
+export const verifyP2PKSigOutput = (output: BlindedMessage, publicKey: string): boolean => {
 	if (!output.witness) {
 		throw new Error('could not verify signature, no witness provided');
 	}
