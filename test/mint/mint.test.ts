@@ -20,13 +20,10 @@ describe('test blind sig', () => {
 });
 describe('new mint keys', () => {
 	test('mint keys from seed', async () => {
-		const keys = createNewMintKeys(
-			64,
-			new TextEncoder().encode("TEST_PRIVATE_KEY")
-		);
+		const keys = createNewMintKeys(64, new TextEncoder().encode('TEST_PRIVATE_KEY'));
 		const serialized = serializeMintKeys(keys.pubKeys);
-		console.log(serialized)
-		expect(serialized).toEqual(TEST_PRIV_KEY_PUBS)
+		console.log(serialized);
+		expect(serialized).toEqual(TEST_PRIV_KEY_PUBS);
 
 		const randomkeys = createNewMintKeys(64);
 		const serializedRandom = serializeMintKeys(randomkeys.pubKeys);

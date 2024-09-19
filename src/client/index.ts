@@ -73,7 +73,7 @@ export const deserializeProof = (proof: SerializedProof): Proof => {
 		C: pointFromHex(proof.C),
 		id: proof.id,
 		secret: new TextEncoder().encode(proof.secret),
-		witness: proof.witness?JSON.parse(proof.witness):undefined
+		witness: proof.witness ? JSON.parse(proof.witness) : undefined
 	};
 };
 export const serializeBlindedMessage = (

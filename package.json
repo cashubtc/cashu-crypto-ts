@@ -29,10 +29,10 @@
 	"author": "gandlaf21",
 	"license": "MIT",
 	"dependencies": {
-		"@noble/curves": "^1.3.0",
-		"@noble/hashes": "^1.3.3",
-		"@scure/bip32": "^1.3.3",
-		"@scure/bip39": "^1.2.2",
+		"@noble/curves": "^1.6.0",
+		"@noble/hashes": "^1.5.0",
+		"@scure/bip32": "^1.5.0",
+		"@scure/bip39": "^1.4.0",
 		"buffer": "^6.0.3"
 	},
 	"devDependencies": {
