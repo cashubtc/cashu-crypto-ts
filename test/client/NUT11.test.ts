@@ -33,7 +33,7 @@ describe('test create p2pk secret', () => {
 		const verify = verifyP2PKSig(signedProof);
 		expect(verify).toBe(true);
 	});
-	test('sign and verify blindedMessage', async() => {
+	test('sign and verify blindedMessage', async () => {
 		const blindedMessage = createRandomBlindedMessage(PRIVKEY);
 		const verify = verifyP2PKSigOutput(blindedMessage, bytesToHex(PUBKEY));
 		expect(verify).toBe(true);

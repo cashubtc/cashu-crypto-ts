@@ -3,7 +3,6 @@ import { sha256 } from '@noble/hashes/sha256';
 import { parseSecret } from '../common/NUT11.js';
 import { Proof } from '../common/index.js';
 import { BlindedMessage } from '../client/index.js';
-import { ProjPointType } from '@noble/curves/abstract/weierstrass.js';
 
 export const verifyP2PKSig = (proof: Proof) => {
 	if (!proof.witness) {
@@ -49,9 +48,5 @@ export const verifyP2PKSigOutput = (output: BlindedMessage, publicKey: string): 
 	if (!output.witness) {
 		throw new Error('could not verify signature, no witness provided');
 	}
-	return schnorr.verify(
-		output.witness.signatures[0],
-		sha256(output.B_.toHex(true)),
-		publicKey
-	)
-}
+	return schnorr.verify(output.witness.signatures[0], sha256(output.B_.toHex(true)), publicKey);
+};

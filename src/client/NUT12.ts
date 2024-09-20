@@ -1,8 +1,8 @@
 import { DLEQ, hash_e, hashToCurve } from '../common/index.js';
-import { ProjPointType } from '@noble/curves/abstract/weierstrass.js';
-import { bytesToHex, numberToBytesBE } from '@noble/curves/abstract/utils';
+import { ProjPointType } from '@noble/curves/abstract/weierstrass';
+import { bytesToHex } from '@noble/curves/abstract/utils';
 import { secp256k1 } from '@noble/curves/secp256k1';
-import { bytesToNumber, hexToNumber } from '../util/utils.js';
+import { bytesToNumber } from '../util/utils.js';
 
 function arraysEqual(arr1: any, arr2: any) {
 	if (arr1.length !== arr2.length) return false;

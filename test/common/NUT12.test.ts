@@ -13,8 +13,10 @@ describe('test hash_e', () => {
 		const R1 = pointFromHex('020000000000000000000000000000000000000000000000000000000000000001');
 		const R2 = pointFromHex('020000000000000000000000000000000000000000000000000000000000000001');
 		const e = hash_e([R1, R2, K, C_]);
-		console.log("e = "+bytesToHex(e));
-		expect(bytesToHex(e)).toEqual('a4dc034b74338c28c6bc3ea49731f2a24440fc7c4affc08b31a93fc9fbe6401e');
+		console.log('e = ' + bytesToHex(e));
+		expect(bytesToHex(e)).toEqual(
+			'a4dc034b74338c28c6bc3ea49731f2a24440fc7c4affc08b31a93fc9fbe6401e'
+		);
 	});
 });
 

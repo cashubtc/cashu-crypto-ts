@@ -4,8 +4,7 @@ import { schnorr } from '@noble/curves/secp256k1';
 import { randomBytes } from '@noble/hashes/utils';
 import { parseSecret } from '../common/NUT11.js';
 import { Proof, Secret } from '../common/index.js';
-import { BlindedMessage, serializeBlindedMessage } from './index.js';
-import { ProjPointType } from '@noble/curves/abstract/weierstrass.js';
+import { BlindedMessage } from './index.js';
 
 export const createP2PKsecret = (pubkey: string): Uint8Array => {
 	const newSecret: Secret = [
