@@ -3,7 +3,8 @@ import { createP2PKsecret, getSignedProof } from '../../src/client/NUT11.js';
 import { bytesToHex } from '@noble/curves/abstract/utils';
 import { Proof, pointFromHex } from '../../src/common';
 import { parseSecret } from '../../src/common/NUT11.js';
-import { verifyP2PKSig } from '../../src/mint/NUT11.js';
+import { verifyP2PKSig, verifyP2PKSigOutput } from '../../src/mint/NUT11.js';
+import { createRandomBlindedMessage } from '../../src/client/index.js';
 
 const PRIVKEY = schnorr.utils.randomPrivateKey();
 const PUBKEY = schnorr.getPublicKey(PRIVKEY);
@@ -30,6 +31,11 @@ describe('test create p2pk secret', () => {
 		};
 		const signedProof = getSignedProof(proof, PRIVKEY);
 		const verify = verifyP2PKSig(signedProof);
+		expect(verify).toBe(true);
+	});
+	test('sign and verify blindedMessage', async() => {
+		const blindedMessage = createRandomBlindedMessage(PRIVKEY);
+		const verify = verifyP2PKSigOutput(blindedMessage, bytesToHex(PUBKEY));
 		expect(verify).toBe(true);
 	});
 });
