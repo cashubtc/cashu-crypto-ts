@@ -30,14 +30,36 @@ export const signBlindedMessage = (B_: string, privateKey: PrivKey): Uint8Array 
 	return sig;
 };
 
-export const getSignedProofs = (proofs: Array<Proof>, privateKey: string): Array<Proof> => {
+export const getSignedProofs = (
+	proofs: Array<Proof>,
+	privateKey: string | string[]
+): Array<Proof> => {
+	let keypairs: Array<{ priv: string; pub: string }> = [];
+	let pk = '';
+
+	if (privateKey instanceof Array) {
+		for (const k of privateKey) {
+			keypairs.push({ priv: k, pub: bytesToHex(schnorr.getPublicKey(k)) });
+		}
+	} else {
+		pk = privateKey;
+	}
+
 	return proofs.map((p) => {
 		try {
 			const parsed: Secret = parseSecret(p.secret);
 			if (parsed[0] !== 'P2PK') {
 				throw new Error('unknown secret type');
 			}
-			return getSignedProof(p, hexToBytes(privateKey));
+			if (keypairs.length) {
+				const matchingKey = keypairs.find((pair) => parsed[1].data === pair.pub)?.priv;
+				if (!matchingKey) {
+					throw new Error('no matching key found');
+				} else {
+					pk = matchingKey;
+				}
+			}
+			return getSignedProof(p, hexToBytes(pk));
 		} catch (error) {
 			return p;
 		}
