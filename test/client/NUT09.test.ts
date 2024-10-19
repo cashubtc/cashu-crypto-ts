@@ -1,10 +1,13 @@
 import { bytesToHex } from '@noble/curves/abstract/utils';
-import { deriveSeedFromMnemonic } from '../../src/client/NUT09.js';
 import { deriveSecret } from '../../src/client/NUT09.js';
 import { HDKey } from '@scure/bip32';
 
-const mnemonic = 'half depart obvious quality work element tank gorilla view sugar picture humble';
-const seed = deriveSeedFromMnemonic(mnemonic);
+const seed = Uint8Array.from(
+	Buffer.from(
+		'dd44ee516b0647e80b488e8dcc56d736a148f15276bef588b37057476d4b2b25780d3688a32b37353d6995997842c0fd8b412475c891c16310471fbc86dcbda8',
+		'hex'
+	)
+);
 
 describe('testing hdkey from seed', () => {
 	test('hdkey from seed', async () => {
