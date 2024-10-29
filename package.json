@@ -100,8 +100,7 @@
 			"types": "./modules/mint/NUT12.d.ts",
 			"import": "./modules/esm/mint/NUT12.js",
 			"default": "./modules/mint/NUT12.js"
-		}
-		,
+		},
 		"./modules/client/NUT12": {
 			"types": "./modules/mint/NUT12.d.ts",
 			"import": "./modules/esm/mint/NUT12.js",
