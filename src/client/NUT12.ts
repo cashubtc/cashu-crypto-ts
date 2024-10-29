@@ -12,12 +12,12 @@ function arraysEqual(arr1: any, arr2: any) {
 	return true;
 }
 
-export function verifyDLEQProof(
+export const verifyDLEQProof = (
 	dleq: DLEQ,
 	B_: ProjPointType<bigint>,
 	C_: ProjPointType<bigint>,
 	A: ProjPointType<bigint>
-) {
+) => {
 	const sG = secp256k1.ProjectivePoint.fromPrivateKey(bytesToHex(dleq.s));
 	const eA = A.multiply(bytesToNumber(dleq.e));
 	const sB_ = B_.multiply(bytesToNumber(dleq.s));
@@ -28,12 +28,12 @@ export function verifyDLEQProof(
 	return arraysEqual(hash, dleq.e);
 }
 
-export function verifyDLEQProof_reblind(
+export const verifyDLEQProof_reblind = (
 	secret: Uint8Array, // secret
 	dleq: DLEQ,
 	C: ProjPointType<bigint>, // unblinded e-cash signature point
 	A: ProjPointType<bigint> // mint public key point
-) {
+) => {
 	if (dleq.r === undefined) throw new Error('verifyDLEQProof_reblind: Undefined blinding factor');
 	const Y = hashToCurve(secret);
 	const C_ = C.add(A.multiply(dleq.r)); // Re-blind the e-cash signature

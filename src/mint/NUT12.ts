@@ -9,7 +9,7 @@ import { bytesToNumber, hexToNumber } from '../util/utils.js';
  * See: https://github.com/cashubtc/cashu-crypto-ts/pull/2 for more details
  * See: https://en.wikipedia.org/wiki/Timing_attack for information about timing attacks.
  */
-export function createDLEQProof(B_: ProjPointType<bigint>, a: Uint8Array): DLEQ {
+export const createDLEQProof = (B_: ProjPointType<bigint>, a: Uint8Array): DLEQ => {
 	const r = bytesToHex(createRandomPrivateKey()); // r <- random
 	const R_1 = secp256k1.ProjectivePoint.fromPrivateKey(r); // R1 = rG
 	const R_2 = B_.multiply(hexToNumber(r)); // R2 = rB_
