@@ -95,6 +95,16 @@
 			"types": "./modules/mint/NUT11.d.ts",
 			"import": "./modules/esm/mint/NUT11.js",
 			"default": "./modules/mint/NUT11.js"
+		},
+		"./modules/mint/NUT12": {
+			"types": "./modules/mint/NUT12.d.ts",
+			"import": "./modules/esm/mint/NUT12.js",
+			"default": "./modules/mint/NUT12.js"
+		},
+		"./modules/client/NUT12": {
+			"types": "./modules/mint/NUT12.d.ts",
+			"import": "./modules/esm/mint/NUT12.js",
+			"default": "./modules/mint/NUT12.js"
 		}
 	}
 }
