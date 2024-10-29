@@ -22,4 +22,4 @@ export const createDLEQProof = (B_: ProjPointType<bigint>, a: Uint8Array): DLEQ 
 	// WARNING: NON-CONSTANT TIME OPERATIONS?
 	const s = numberToBytesBE((n_r + n_e * n_a) % secp256k1.CURVE.n, 32); // (r + ea) mod n
 	return { s, e };
-}
+};

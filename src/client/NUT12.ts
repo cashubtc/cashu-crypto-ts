@@ -26,7 +26,7 @@ export const verifyDLEQProof = (
 	const R_2 = sB_.subtract(eC_); // R2 = sB' - eC'
 	const hash = hash_e([R_1, R_2, A, C_]); // e == hash(R1, R2, A, C')
 	return arraysEqual(hash, dleq.e);
-}
+};
 
 export const verifyDLEQProof_reblind = (
 	secret: Uint8Array, // secret
@@ -40,4 +40,4 @@ export const verifyDLEQProof_reblind = (
 	const bG = secp256k1.ProjectivePoint.fromPrivateKey(dleq.r);
 	const B_ = Y.add(bG); // Re-blind the message
 	return verifyDLEQProof(dleq, B_, C_, A);
-}
+};
